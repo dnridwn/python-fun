@@ -7,12 +7,11 @@ def decToHex(dec):
     while quotient > 0:
         remainder = quotient % 16
         quotient = math.floor(quotient / 16)
-        
         if remainder > 9:
             hex = chr(remainder + 55) + hex
         else:
             hex = str(remainder) + hex
-            
+       
     if hex == '':
         return '00'
     
@@ -20,12 +19,14 @@ def decToHex(dec):
     
 def limit(n):
     if n > 255:
-        return 255
-    else:
-        return n
+        n = 255
+    return n
     
 def rgb(r, g, b):
     return decToHex(limit(r)) + decToHex(limit(g)) + decToHex(limit(b))
+
+
+print(rgb(255, 255, 255))
 
 # The following are examples of expected output values:
 # rgb(255, 255, 255) // returns FFFFFF
